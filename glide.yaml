@@ -1,0 +1,3 @@
+package: .
+import:
+- package: gopkg.in/gin-gonic/gin.v1

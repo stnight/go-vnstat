@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>
+            {{.title}}
+        </title>
+        <!--CSS-->
+        <link rel="stylesheet" href="/assets/css/bulma.css">
+        <link rel="stylesheet" href="/assets/css/style.css">
+        <!--JS-->
+        <script src="/assets/js/Chart.bundle.min.js"></script>
+        <script src="/assets/js/axios.min.js"></script>
+        <script src="/assets/js/vue.min.js"></script>
+    </head>
+    <body>
+        <div class="container is-fluid">
+            <nav class="nav">
+                <div class="nav-left">
+                    <a href="/" class="nav-item">{{.title}}</a>
+                </div>
+            </nav>
+            <!--body-->
+            <div class="columns">
+                <!--Interfaces-->
+                <div class="column is-1">
+                    <nav class="panel" id="Interfaces">
+                        <p class="panel-heading">Network Interfaces</p>
+                        <template v-for="item in items">
+                            <a href="" class="panel-block" v-on:click="myclick">
+                                ({item.name})
+                            </a>
+                        </template>
+                    </nav>
+                </div>
+                <!--Charts-->
+                <div class="column is-11">
+                    <div class="columns">
+                        <div class="column is-half" id="InterfaceInfo">
+                            <h3>Information</h3>
+                            <p>Name: ({name})</p>
+                            <p>Total RX: ({totalRx})</p>
+                            <p>Total TX: ({totalTx})</p>
+                        </div>
+                        <!--For Monthly Usagge-->
+                        <div class="column is-half">
+                            <h1>Monthly Usage</h1>
+                            <canvas id="monthUsage"></canvas>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column is-half">
+                            <h1>Hourly Usage</h1>
+                            <canvas id="hourUsage"></canvas>
+                        </div>
+                        <div class="column is-half">
+                            <h1>Daily Usage</h1>
+                            <canvas id="dayUsage"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/assets/js/app.js"></script>
+    </body>
+</html>
